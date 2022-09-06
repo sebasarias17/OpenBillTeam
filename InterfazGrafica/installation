@@ -1,0 +1,8 @@
+--Archivo con las librerias necesarias para la ejecución del programa--
+--Si tienes un entorno virtual instala con el siguiente comando py -m pip install -r .\installation--
+--Si lo vas a instalar en tu computadora de manera global usa el comando pip install seguido del nombre de la libreria--
+--recuerda que el archivo ejecutable es el archivo main.py--
+
+pyqt5-tools
+PyQt5
+PySide2
