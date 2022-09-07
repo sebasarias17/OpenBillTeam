@@ -67,7 +67,7 @@
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>../mockups/1.png</normaloff>../mockups/1.png</iconset>
+           <normaloff>Recursos/1.png</normaloff>Recursos/1.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -100,7 +100,7 @@
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>../mockups/minimizar logo.png</normaloff>../mockups/minimizar logo.png</iconset>
+           <normaloff>Recursos/minimizar logo.png</normaloff>Recursos/minimizar logo.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -120,7 +120,7 @@
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>../mockups/min logo.png</normaloff>../mockups/min logo.png</iconset>
+           <normaloff>Recursos/min logo.png</normaloff>Recursos/min logo.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -140,7 +140,7 @@
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>../mockups/maxi_logo.png</normaloff>../mockups/maxi_logo.png</iconset>
+           <normaloff>Recursos/maxi_logo.png</normaloff>Recursos/maxi_logo.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -160,7 +160,7 @@
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>../mockups/salir logo.png</normaloff>../mockups/salir logo.png</iconset>
+           <normaloff>Recursos/salir logo.png</normaloff>Recursos/salir logo.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -201,7 +201,7 @@
         <widget class="QFrame" name="frame">
          <property name="minimumSize">
           <size>
-           <width>250</width>
+           <width>0</width>
            <height>0</height>
           </size>
          </property>
@@ -251,7 +251,7 @@ font: 10pt &quot;Small Fonts&quot;;
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>../mockups/home logo.png</normaloff>../mockups/home logo.png</iconset>
+              <normaloff>Recursos/home logo.png</normaloff>Recursos/home logo.png</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -271,7 +271,7 @@ font: 10pt &quot;Small Fonts&quot;;
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>../mockups/Captura logo.png</normaloff>../mockups/Captura logo.png</iconset>
+              <normaloff>Recursos/Captura logo.png</normaloff>Recursos/Captura logo.png</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -288,7 +288,7 @@ font: 10pt &quot;Small Fonts&quot;;
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>../mockups/imagen logo.png</normaloff>../mockups/imagen logo.png</iconset>
+              <normaloff>Recursos/imagen logo.png</normaloff>Recursos/imagen logo.png</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -305,7 +305,7 @@ font: 10pt &quot;Small Fonts&quot;;
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>../mockups/Archivo logo.png</normaloff>../mockups/Archivo logo.png</iconset>
+              <normaloff>Recursos/Archivo logo.png</normaloff>Recursos/Archivo logo.png</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -322,7 +322,7 @@ font: 10pt &quot;Small Fonts&quot;;
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>../mockups/ajustes logo.png</normaloff>../mockups/ajustes logo.png</iconset>
+              <normaloff>Recursos/ajustes logo.png</normaloff>Recursos/ajustes logo.png</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -403,7 +403,7 @@ color: rgb(255, 255, 255);</string>
                <string/>
               </property>
               <property name="pixmap">
-               <pixmap>../mockups/1.png</pixmap>
+               <pixmap>Recursos/1.png</pixmap>
               </property>
               <property name="scaledContents">
                <bool>true</bool>
@@ -440,7 +440,7 @@ color: rgb(255, 255, 255);</string>
                <string/>
               </property>
               <property name="pixmap">
-               <pixmap>../../../Downloads/OpenBill (6).png</pixmap>
+               <pixmap>Recursos/OpenBill (6).png</pixmap>
               </property>
               <property name="scaledContents">
                <bool>true</bool>
@@ -568,7 +568,7 @@ color: rgb(255, 255, 255);</string>
                <string/>
               </property>
               <property name="pixmap">
-               <pixmap>../../../Downloads/OpenBill (7).png</pixmap>
+               <pixmap>Recursos/OpenBill (7).png</pixmap>
               </property>
               <property name="scaledContents">
                <bool>true</bool>
@@ -683,7 +683,7 @@ color: rgb(255, 255, 255);</string>
                <string/>
               </property>
               <property name="pixmap">
-               <pixmap>../../../Downloads/OpenBill (8).png</pixmap>
+               <pixmap>Recursos/OpenBill (8).png</pixmap>
               </property>
               <property name="scaledContents">
                <bool>true</bool>
@@ -808,7 +808,7 @@ color: rgb(255, 255, 255);</string>
                <string/>
               </property>
               <property name="pixmap">
-               <pixmap>../../../Downloads/OpenBill (9).png</pixmap>
+               <pixmap>Recursos/OpenBill (9).png</pixmap>
               </property>
               <property name="scaledContents">
                <bool>true</bool>
@@ -851,7 +851,7 @@ color: rgb(255, 255, 255);</string>
                <enum>Qt::PlainText</enum>
               </property>
               <property name="pixmap">
-               <pixmap>../mockups/1.png</pixmap>
+               <pixmap>Recursos/1.png</pixmap>
               </property>
               <property name="scaledContents">
                <bool>true</bool>
@@ -870,7 +870,7 @@ color: rgb(255, 255, 255);</string>
                <string/>
               </property>
               <property name="pixmap">
-               <pixmap>../../../Downloads/WhatsApp Image 2022-07-28 at 9.04.22 PM.jpeg</pixmap>
+               <pixmap>Recursos/OpenBill.png</pixmap>
               </property>
               <property name="scaledContents">
                <bool>true</bool>

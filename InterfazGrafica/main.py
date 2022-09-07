@@ -1,6 +1,6 @@
 #@autor: Sebastian Arias Usma
 import sys
-from diseño import *
+from ui_diseño import *
 from PySide2 import QtCore
 from PySide2.QtCore import QPropertyAnimation
 from PySide2 import QtCore,QtGui,QtWidgets
@@ -111,6 +111,10 @@ class MiApp(QMainWindow):
         self.ui.prev_file.setPixmap(self.pixmap)
         if fname:
             self.ui.file_path.setText(str(fname))
+
+    ##metodo prender camara
+    def camara(self):
+        pass
 
 
 if __name__ == '__main__':
