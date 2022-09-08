@@ -1,6 +1,6 @@
 #@autor: Sebastian Arias Usma
 import sys
-from ui_diseño import *
+from ui_design import *
 from PySide2 import QtCore
 from PySide2.QtCore import QPropertyAnimation
 from PySide2 import QtCore,QtGui,QtWidgets
@@ -114,6 +114,10 @@ class MiApp(QMainWindow):
 
     ##metodo prender camara
     def camara(self):
+        pass
+
+    ##metodo de transcripción
+    def transcript(self):
         pass
 
 
