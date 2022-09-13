@@ -480,7 +480,7 @@ color: rgb(255, 255, 255);</string>
                <string>CAPTURAR</string>
               </property>
              </widget>
-             <widget class="QPushButton" name="btn_volver">
+             <widget class="QPushButton" name="btn_transcribir">
               <property name="geometry">
                <rect>
                 <x>310</x>
@@ -490,7 +490,7 @@ color: rgb(255, 255, 255);</string>
                </rect>
               </property>
               <property name="text">
-               <string>VOLVER</string>
+               <string>TRANSCRIBIR</string>
               </property>
              </widget>
              <widget class="QLabel" name="label_3">
@@ -639,7 +639,7 @@ color: rgb(255, 255, 255);</string>
                <string>BUSCAR IMAGEN</string>
               </property>
              </widget>
-             <widget class="QPushButton" name="bnt_volver2">
+             <widget class="QPushButton" name="bnt_refrescar">
               <property name="geometry">
                <rect>
                 <x>320</x>
@@ -649,7 +649,7 @@ color: rgb(255, 255, 255);</string>
                </rect>
               </property>
               <property name="text">
-               <string>VOLVER</string>
+               <string>REFRESCAR</string>
               </property>
              </widget>
              <widget class="QLabel" name="label_12">
@@ -746,7 +746,7 @@ color: rgb(255, 255, 255);</string>
                </rect>
               </property>
               <property name="text">
-               <string>VOLVER</string>
+               <string>REFRESCAR</string>
               </property>
              </widget>
              <widget class="QLineEdit" name="file_path">

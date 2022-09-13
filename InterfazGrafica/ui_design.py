@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'dise�oJOdQKM.ui'
+## Form generated from reading UI file 'designEDMeKw.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -246,9 +246,9 @@ class Ui_MainWindow(object):
         self.btn_capturar = QPushButton(self.capturar)
         self.btn_capturar.setObjectName(u"btn_capturar")
         self.btn_capturar.setGeometry(QRect(60, 470, 141, 31))
-        self.btn_volver = QPushButton(self.capturar)
-        self.btn_volver.setObjectName(u"btn_volver")
-        self.btn_volver.setGeometry(QRect(310, 470, 141, 31))
+        self.btn_transcribir = QPushButton(self.capturar)
+        self.btn_transcribir.setObjectName(u"btn_transcribir")
+        self.btn_transcribir.setGeometry(QRect(310, 470, 141, 31))
         self.label_3 = QLabel(self.capturar)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setGeometry(QRect(140, 20, 251, 31))
@@ -292,9 +292,9 @@ class Ui_MainWindow(object):
         self.btn_search = QPushButton(self.selec_foto)
         self.btn_search.setObjectName(u"btn_search")
         self.btn_search.setGeometry(QRect(90, 440, 111, 31))
-        self.bnt_volver2 = QPushButton(self.selec_foto)
-        self.bnt_volver2.setObjectName(u"bnt_volver2")
-        self.bnt_volver2.setGeometry(QRect(320, 440, 121, 31))
+        self.bnt_refrescar = QPushButton(self.selec_foto)
+        self.bnt_refrescar.setObjectName(u"bnt_refrescar")
+        self.bnt_refrescar.setGeometry(QRect(320, 440, 121, 31))
         self.label_12 = QLabel(self.selec_foto)
         self.label_12.setObjectName(u"label_12")
         self.label_12.setGeometry(QRect(570, 30, 231, 51))
@@ -326,6 +326,7 @@ class Ui_MainWindow(object):
         self.file_path = QLineEdit(self.selec_archivo)
         self.file_path.setObjectName(u"file_path")
         self.file_path.setGeometry(QRect(20, 370, 391, 20))
+        self.file_path.setStyleSheet(u"color: rgb(255, 255, 255);")
         self.label_5 = QLabel(self.selec_archivo)
         self.label_5.setObjectName(u"label_5")
         self.label_5.setGeometry(QRect(110, 30, 281, 31))
@@ -399,7 +400,7 @@ class Ui_MainWindow(object):
         self.label_9.setText("")
         self.camara.setText("")
         self.btn_capturar.setText(QCoreApplication.translate("MainWindow", u"CAPTURAR", None))
-        self.btn_volver.setText(QCoreApplication.translate("MainWindow", u"VOLVER", None))
+        self.btn_transcribir.setText(QCoreApplication.translate("MainWindow", u"TRANSCRIBIR", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Capturar Imagen", None))
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"SIGUE LOS PASOS", None))
         self.btn_on.setText(QCoreApplication.translate("MainWindow", u"ON", None))
@@ -409,13 +410,13 @@ class Ui_MainWindow(object):
         self.prev_foto.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.btn_seleccionar.setText(QCoreApplication.translate("MainWindow", u"SELECCIONAR", None))
         self.btn_search.setText(QCoreApplication.translate("MainWindow", u"BUSCAR IMAGEN", None))
-        self.bnt_volver2.setText(QCoreApplication.translate("MainWindow", u"VOLVER", None))
+        self.bnt_refrescar.setText(QCoreApplication.translate("MainWindow", u"REFRESCAR", None))
         self.label_12.setText(QCoreApplication.translate("MainWindow", u"SIGUE LOS PASOS", None))
         self.label_13.setText("")
         self.prev_file.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.btn_search2.setText(QCoreApplication.translate("MainWindow", u"BUSCAR", None))
         self.btn_aceptar.setText(QCoreApplication.translate("MainWindow", u"ACEPTAR", None))
-        self.btn_volver3.setText(QCoreApplication.translate("MainWindow", u"VOLVER", None))
+        self.btn_volver3.setText(QCoreApplication.translate("MainWindow", u"REFRESCAR", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"Seleccionar Archivo", None))
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"SIGUE LOS PASOS", None))
         self.label_15.setText("")
