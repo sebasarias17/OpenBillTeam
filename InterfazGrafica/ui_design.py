@@ -272,6 +272,9 @@ class Ui_MainWindow(object):
         self.label_11.setGeometry(QRect(530, 80, 221, 231))
         self.label_11.setPixmap(QPixmap(u"Recursos/OpenBill (7).png"))
         self.label_11.setScaledContents(True)
+        self.btn_carpeta = QPushButton(self.capturar)
+        self.btn_carpeta.setObjectName(u"btn_carpeta")
+        self.btn_carpeta.setGeometry(QRect(400, 200, 111, 31))
         self.stackedWidget.addWidget(self.capturar)
         self.selec_foto = QWidget()
         self.selec_foto.setObjectName(u"selec_foto")
@@ -401,6 +404,7 @@ class Ui_MainWindow(object):
         self.camara.setText("")
         self.btn_capturar.setText(QCoreApplication.translate("MainWindow", u"CAPTURAR", None))
         self.btn_transcribir.setText(QCoreApplication.translate("MainWindow", u"TRANSCRIBIR", None))
+        self.btn_carpeta.setText(QCoreApplication.translate("MainWindow", u"CARPETA", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Capturar Imagen", None))
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"SIGUE LOS PASOS", None))
         self.btn_on.setText(QCoreApplication.translate("MainWindow", u"ON", None))
@@ -424,4 +428,5 @@ class Ui_MainWindow(object):
         self.label_6.setText("")
         self.label_16.setText("")
     # retranslateUi
+
 

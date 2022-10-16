@@ -1,6 +1,7 @@
 #@autor: Sebastian Arias Usma
 
 import sys
+import os
 from ui_design import *
 from PySide2 import QtCore
 from PySide2.QtCore import *
@@ -44,6 +45,9 @@ class MiApp(QMainWindow):
 
         #Botones pagina seleccionar archivo
         self.ui.btn_search2.clicked.connect(self.search_file)
+
+        #Boton seleccionar path para capturas
+        self.ui.btn_carpeta.clicked.connect(self.obtener_path)
 
         #Boton encender camara
         self.logic = 0
@@ -133,7 +137,7 @@ class MiApp(QMainWindow):
     ##metodo buscar archivos
     def search_file(self):
         fname = QFileDialog.getOpenFileName(self, "Open File","","PDF(*.pdf)")
-
+        
         self.pixmap = QPixmap(fname[0])
         self.ui.prev_file.setPixmap(self.pixmap)
         if fname:
@@ -143,6 +147,11 @@ class MiApp(QMainWindow):
     def refrescar_file(self):
         self.ui.prev_file.clear()
         self.ui.file_path.clear()
+
+
+    #metodo obtener path 
+    def obtener_path(self):
+        self.ruta = QFileDialog.getExistingDirectory(self,caption = "Select a Folder" )
 
     ##metodo prender camara
     def act_camara(self):
@@ -156,7 +165,7 @@ class MiApp(QMainWindow):
 
                 if(self.logic ==2):
                     self.value = self.value+1
-                    cv.imwrite("C:/Users/Usuario/OneDrive/Escritorio/OpenBill/capturas/%s.png"%(self.value),frame)
+                    cv.imwrite(os.path.join(self.ruta,"%s.png")%(self.value),frame)
 
                     self.logic = 1
     
