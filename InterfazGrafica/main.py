@@ -1,6 +1,8 @@
 #@autor: Sebastian Arias Usma
-
+# Librerías para gestión de rutas y archivos
 import sys
+import os
+# Librerías para la interfaz gráfica
 from ui_design import *
 from PySide2 import QtCore
 from PySide2.QtCore import *
@@ -8,7 +10,32 @@ from PySide2.QtGui import *
 from PySide2.QtCore import QPropertyAnimation
 from PySide2 import QtCore,QtGui,QtWidgets
 from PySide2.QtGui import QPixmap
-import cv2 as cv
+# Librerías para webcam y procesamiento de las imágenes
+from re import L
+import cv2
+from cv2 import threshold
+import numpy as np
+from imutils.perspective import four_point_transform
+import pytesseract
+# Librerías para la conexión y gestión con la base de datos
+import pymongo
+# Librería para pdf
+from pdf2image import convert_from_path
+
+# cap = cv2.VideoCapture(0 + cv2.CAP_DSHOW)
+cap = cv2.VideoCapture(0)
+
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+#pytesseract.pytesseract.tesseract_cmd = 'C:\Program Files (x86)\Tesseract-OCR\tesseract.exe'
+
+count = 0
+scale = 0.5
+
+font = cv2.FONT_HERSHEY_SIMPLEX
+
+WIDTH, HEIGHT = 1920, 1080
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, WIDTH)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, HEIGHT)
 
 class MiApp(QMainWindow):
     def __init__(self):
@@ -45,9 +72,12 @@ class MiApp(QMainWindow):
         #Botones pagina seleccionar archivo
         self.ui.btn_search2.clicked.connect(self.search_file)
 
+        #Boton seleccionar path para capturas
+        self.ui.btn_carpeta.clicked.connect(self.obtener_path)
+
         #Boton encender camara
         self.logic = 0
-        self.value = 1
+        self.count = 1
         self.ui.btn_on.clicked.connect(self.act_camara)
 
         #Boton capturar
@@ -56,6 +86,12 @@ class MiApp(QMainWindow):
         ##Boton apagar camara
         self.ui.btn_off.clicked.connect(self.off_cam)
 
+        # Boton procesar
+        self.ui.btn_transcribir.clicked.connect(self.transcript)
+        # Boton procesar imagen seleccionada
+        self.ui.btn_seleccionar.clicked.connect(self.transcriptSeleccionar)
+        # Boton procesar pdf 
+        self.ui.btn_aceptar.clicked.connect(self.pdfAnalysis)
         #Control de la barra de titulos
         self.ui.btn_segundoplano.clicked.connect(self.admin_btn_segundoplano)
         self.ui.btn_minimizar.clicked.connect(self.admin_btn_minimizar)
@@ -94,9 +130,6 @@ class MiApp(QMainWindow):
             self.animacion.setEndValue(extender)
             self.animacion.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
             self.animacion.start()
-            
-            
-
     
     ##metdo ResizeGrip
     def resizeEvent(self, event):
@@ -121,8 +154,9 @@ class MiApp(QMainWindow):
             
     ##metodo buscar foto
     def search_foto(self):
+        global rutaFoto
         fname = QFileDialog.getOpenFileName(self, "Open File","","PNG(*.png);;JPEG(*.jpeg);;JPG(*.jpg)")
-        
+        rutaFoto = fname[0]
         self.pixmap = QPixmap(fname[0])
         self.ui.prev_foto.setPixmap(self.pixmap)
 
@@ -132,8 +166,9 @@ class MiApp(QMainWindow):
 
     ##metodo buscar archivos
     def search_file(self):
+        global rutaFile
         fname = QFileDialog.getOpenFileName(self, "Open File","","PDF(*.pdf)")
-
+        rutaFile = fname[0]
         self.pixmap = QPixmap(fname[0])
         self.ui.prev_file.setPixmap(self.pixmap)
         if fname:
@@ -144,26 +179,42 @@ class MiApp(QMainWindow):
         self.ui.prev_file.clear()
         self.ui.file_path.clear()
 
+
+    #metodo obtener path 
+    def obtener_path(self):
+        self.ruta = QFileDialog.getExistingDirectory(self,caption = "Select a Folder" )
+
     ##metodo prender camara
     def act_camara(self):
         self.logic = 1
-        self.cap = cv.VideoCapture(0)
+        self.cap = cv2.VideoCapture(0)
         while(self.cap.isOpened()):
-            ret, frame = self.cap.read()
-            if ret == True:
-                self.display(frame, 1)
-                cv.waitKey()
+            #ret, frame = self.cap.read()
+            global frame, warped, processed
+            _, frame = self.cap.read()
+            # cambiar si la cámara está rotada 180 grados, sino, parchis
+            frame = cv2.rotate(frame, cv2.ROTATE_180)
+            frame_copy = frame.copy()
+            
+            self.scan_detection(frame_copy)
+            warped = four_point_transform(frame_copy, document_contour.reshape(4,2))
+            processed = self.image_processing(warped)
 
-                if(self.logic ==2):
-                    self.value = self.value+1
-                    cv.imwrite("C:/Users/Usuario/OneDrive/Escritorio/OpenBill/capturas/%s.png"%(self.value),frame)
+            #self.center_text(frame, "Scan Saved")
+            #cv2.imshow("input", cv2.resize(frame, (int(scale * WIDTH), int(scale * HEIGHT))))
+            #cv2.waitKey(500)
 
-                    self.logic = 1
+            self.display(processed, 1)
+            cv2.waitKey()
+
+            if(self.logic ==2):   
+                self.count += 1             
+                cv2.imwrite(os.path.join(self.ruta,"%s.png")%(self.count),processed)
+                self.logic = 1
     
     #metodo para capturar
     def capturar(self):
         self.logic = 2
-
 
     ##metodo desplegar imagen
     def display(self,img,window=1):
@@ -188,8 +239,82 @@ class MiApp(QMainWindow):
 
     ##metodo de transcripción
     def transcript(self):
-        pass
+        file = open('output/recognized_' + str(self.count - 1) + '.txt', 'w')
+        ocr_text = pytesseract.image_to_string(warped)
+        #print(ocr_text)
+        file.write(ocr_text)
+        file.close()
 
+        self.center_text(frame, "Text Saved")
+        """ cv2.imshow("input", cv2.resize(frame, (int(scale * WIDTH), int(scale * HEIGHT))))
+        cv2.waitKey(500) """
+        self.display(frame, 1)
+        cv2.waitKey()
+
+    def transcriptSeleccionar(self):
+        ruta = cv2.imread(rutaFoto)
+        file = open('output/recognized_' + str(self.count - 1) + '.txt', 'w')
+        frame_copy = ruta.copy()
+        
+        #self.scan_detection(frame_copy)
+        #warped = four_point_transform(frame_copy, document_contour.reshape(4,2))
+        processed = self.image_processing(frame_copy)
+        ocr_text = pytesseract.image_to_string(processed)
+
+        #print(ocr_text)
+        file.write(ocr_text)
+        file.close()
+
+        self.center_text(frame_copy, "Text Saved")
+        """ cv2.imshow("input", cv2.resize(frame_copy, (int(scale * WIDTH), int(scale * HEIGHT))))
+        cv2.waitKey(500)  """
+        self.display(frame_copy, 1)
+        cv2.waitKey()
+
+    def image_processing(self, image):
+        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        _, threshold = cv2.threshold(gray, 120, 255, cv2.THRESH_BINARY)
+        return threshold
+
+    def scan_detection(self, image):
+        global document_contour
+        document_contour = np.array([[0, 0], [WIDTH, 0], [WIDTH, HEIGHT], [0, HEIGHT]])
+
+        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        blur = cv2.GaussianBlur(gray, (5, 5), 0)
+        _, threshold = cv2.threshold(blur, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+
+        contours, _ = cv2.findContours(threshold, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+        contours = sorted(contours, key=cv2.contourArea, reverse=True)
+
+        max_area = 0
+        for contour in contours:
+            area = cv2.contourArea(contour)
+            if area > 1000:
+                peri = cv2.arcLength(contour, True)
+                approx = cv2.approxPolyDP(contour, 0.015 * peri, True)
+                if area > max_area and len(approx) == 4:
+                    document_contour = approx
+                    max_area = area
+        
+        cv2.drawContours(frame, [document_contour], -1, (0, 255, 0), 3)
+
+    def center_text(self, image, text):
+        text_size = cv2.getTextSize(text, font, 2, 5)[0]
+        text_x = (image.shape[1] - text_size[0]) // 2
+        text_y = (image.shape[0] + text_size[1]) // 2
+        cv2.putText(image, text, (text_x, text_y), font, 2, (255, 0, 255), 5, cv2.LINE_AA)
+    
+    def pdfAnalysis(self):
+        images = convert_from_path(rutaFile, last_page=5)
+        # Convierte el documento pdf a fotos
+        # Hay que limitar esta chimbada a 5 fotos máximo
+        for i in range(len(images)):
+            # Save pages as images in the pdf
+            images[i].save('output/pdf/page'+ str(i) +'.jpg', 'JPEG')
+        
+        if len(images) > 4:
+            print('PDF muy grande para ser analizado!')
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
