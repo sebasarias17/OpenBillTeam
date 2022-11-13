@@ -22,6 +22,9 @@ import pymongo
 # Librería para pdf
 from pdf2image import convert_from_path
 
+#Librerias pagina web
+import webbrowser as wb
+
 # cap = cv2.VideoCapture(0 + cv2.CAP_DSHOW)
 cap = cv2.VideoCapture(0)
 
@@ -85,6 +88,9 @@ class MiApp(QMainWindow):
 
         ##Boton apagar camara
         self.ui.btn_off.clicked.connect(self.off_cam)
+
+        ##Boton redirigir a la pagina web
+        self.ui.push_web.clicked.connect(self.web_page)
 
         # Boton procesar
         self.ui.btn_transcribir.clicked.connect(self.transcript)
@@ -236,6 +242,10 @@ class MiApp(QMainWindow):
     def off_cam(self):
         self.terminar = self.cap.release()
         self.ui.camara.clear()
+    
+    ##metodo pagina web
+    def web_page(self):
+        wb.open('https://dev.azure.com/dagudelot0852/OpenBill')
 
     ##metodo de transcripción
     def transcript(self):

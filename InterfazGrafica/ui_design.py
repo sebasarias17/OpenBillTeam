@@ -179,7 +179,7 @@ class Ui_MainWindow(object):
                 self.pushButton_10 = QPushButton(self.frame)
                 self.pushButton_10.setObjectName(u"pushButton_10")
                 icon9 = QIcon()
-                icon9.addFile(u"Recursos/ajustes logo.png",
+                icon9.addFile(u"Recursos/stats_logo.png",
                         QSize(), QIcon.Normal, QIcon.Off)
                 self.pushButton_10.setIcon(icon9)
                 self.pushButton_10.setIconSize(QSize(30, 30))
@@ -360,34 +360,69 @@ class Ui_MainWindow(object):
                 self.ajustes.setObjectName(u"ajustes")
                 self.label_2 = QLabel(self.ajustes)
                 self.label_2.setObjectName(u"label_2")
-                self.label_2.setGeometry(QRect(60, 50, 361, 51))
+                self.label_2.setGeometry(QRect(70, 10, 381, 51))
                 self.label_2.setStyleSheet(u"background: #000000ff;\n"
         "font: 20pt \"Nexa-Bold\";\n"
         "\n"
         "color: rgb(255, 255, 255);")
-                self.label_6 = QLabel(self.ajustes)
-                self.label_6.setObjectName(u"label_6")
-                self.label_6.setGeometry(QRect(90, 130, 311, 301))
-                self.label_6.setTextFormat(Qt.PlainText)
-                self.label_6.setPixmap(QPixmap(u"Recursos/1.png"))
-                self.label_6.setScaledContents(True)
                 self.label_16 = QLabel(self.ajustes)
                 self.label_16.setObjectName(u"label_16")
                 self.label_16.setGeometry(QRect(550, 100, 211, 201))
                 self.label_16.setPixmap(QPixmap(u"Recursos/OpenBill.png"))
                 self.label_16.setScaledContents(True)
+                self.label_6 = QLabel(self.ajustes)
+                self.label_6.setObjectName(u"label_6")
+                self.label_6.setGeometry(QRect(20, 70, 481, 61))
+                self.label_6.setStyleSheet(u"background: #000000ff;\n"
+        "font: 20pt \"Nexa-Bold\";\n"
+        "\n"
+        "color: rgb(255, 255, 255);")
+                self.label_17 = QLabel(self.ajustes)
+                self.label_17.setObjectName(u"label_17")
+                self.label_17.setGeometry(QRect(100, 110, 181, 61))
+                self.label_17.setStyleSheet(u"background: #000000ff;\n"
+        "font: 20pt \"Nexa-Bold\";\n"
+        "\n"
+        "color: rgb(255, 255, 255);")
+                self.label_18 = QLabel(self.ajustes)
+                self.label_18.setObjectName(u"label_18")
+                self.label_18.setGeometry(QRect(280, 110, 151, 61))
+                self.label_18.setStyleSheet(u"background: #000000ff;\n"
+        "font: 20pt \"Nexa-Bold\";\n"
+        "\n"
+        "color: rgb(3, 187, 82);")
+                self.label_19 = QLabel(self.ajustes)
+                self.label_19.setObjectName(u"label_19")
+                self.label_19.setGeometry(QRect(80, 150, 401, 61))
+                self.label_19.setStyleSheet(u"background: #000000ff;\n"
+        "font: 20pt \"Nexa-Bold\";\n"
+        "\n"
+        "color: rgb(255, 255, 255);")
+                self.label_20 = QLabel(self.ajustes)
+                self.label_20.setObjectName(u"label_20")
+                self.label_20.setGeometry(QRect(110, 200, 301, 171))
+                self.label_20.setStyleSheet(u"background: #000000ff;\n"
+        "font: 20pt \"Nexa-Bold\";\n"
+        "\n"
+        "color: rgb(255, 255, 255);")
+                self.label_20.setPixmap(QPixmap(u"Recursos/imagen_web.png"))
+                self.label_20.setScaledContents(True)
+                self.push_web = QPushButton(self.ajustes)
+                self.push_web.setObjectName(u"push_web")
+                self.push_web.setGeometry(QRect(210, 430, 121, 31))
+                self.label_21 = QLabel(self.ajustes)
+                self.label_21.setObjectName(u"label_21")
+                self.label_21.setGeometry(QRect(70, 370, 401, 61))
+                self.label_21.setStyleSheet(u"background: #000000ff;\n"
+        "font: 20pt \"Nexa-Bold\";\n"
+        "\n"
+        "color: rgb(255, 255, 255);")
                 self.stackedWidget.addWidget(self.ajustes)
-
                 self.verticalLayout_2.addWidget(self.stackedWidget)
-
                 self.horizontalLayout.addWidget(self.frame_2)
-
                 self.verticalLayout.addWidget(self.frame_inferior)
-
                 MainWindow.setCentralWidget(self.centralwidget)
-
                 self.retranslateUi(MainWindow)
-
                 QMetaObject.connectSlotsByName(MainWindow)
 
         # setupUi
@@ -403,7 +438,7 @@ class Ui_MainWindow(object):
                 self.pushButton_7.setText(QCoreApplication.translate("MainWindow", u"CAPTURAR FOTO", None))
                 self.pushButton_8.setText(QCoreApplication.translate("MainWindow", u"SELECCIONAR FOTO", None))
                 self.pushButton_9.setText(QCoreApplication.translate("MainWindow", u"SELECCIONAR ARCHIVO", None))
-                self.pushButton_10.setText(QCoreApplication.translate("MainWindow", u"AJUSTES", None))
+                self.pushButton_10.setText(QCoreApplication.translate("MainWindow", u"ESTADISTICAS", None))
                 self.label.setText(QCoreApplication.translate("MainWindow", u"Bienvenido de nuevo!!", None))
                 self.label_7.setText("")
                 self.label_8.setText(QCoreApplication.translate("MainWindow", u"SIGUE LOS PASOS", None))
@@ -431,8 +466,14 @@ class Ui_MainWindow(object):
                 self.label_5.setText(QCoreApplication.translate("MainWindow", u"Seleccionar Archivo", None))
                 self.label_14.setText(QCoreApplication.translate("MainWindow", u"SIGUE LOS PASOS", None))
                 self.label_15.setText("")
-                self.label_2.setText(QCoreApplication.translate("MainWindow", u"Estamos mejorando por ti...", None))
-                self.label_6.setText("")
+                self.label_2.setText(QCoreApplication.translate("MainWindow", u"Bienvenido a tus estadisticas.", None))
                 self.label_16.setText("")
+                self.label_6.setText(QCoreApplication.translate("MainWindow", u"Recuerda que solo nuestros usuarios", None))
+                self.label_17.setText(QCoreApplication.translate("MainWindow", u"Con el Rango", None))
+                self.label_18.setText(QCoreApplication.translate("MainWindow", u"\"AFILIADO\"", None))
+                self.label_19.setText(QCoreApplication.translate("MainWindow", u"pueden acceder a estos datos.", None))
+                self.label_20.setText("")
+                self.push_web.setText(QCoreApplication.translate("MainWindow", u"Web Page", None))
+                self.label_21.setText(QCoreApplication.translate("MainWindow", u"Accede en el siguiente bot\u00f3n.", None))
 
 # retranslateUi
