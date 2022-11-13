@@ -1,7 +1,7 @@
 --Archivo con las librerias necesarias para la ejecución del programa--
 --Si tienes un entorno virtual instala con el siguiente comando py -m pip install -r .\installation--
 --Si lo vas a instalar en tu computadora de manera global usa el comando pip install seguido del nombre de la libreria--
---Instalar tesseract con su archivo .exe en el siguiente link: https://github.com/UB-Mannheim/tesseract/wiki--
+--Instalar tesseract con su archivo .exe en el siguiente link: https://github.com/UB-Mannheim/tesseract/wiki
 --recuerda que el archivo ejecutable es el archivo main.py--
 
 pyqt5-tools
@@ -13,3 +13,4 @@ pytesseract
 numpy
 pdf2image
 imutils
+scipy

@@ -7,4 +7,4 @@ pytesseract
 numpy
 pdf2image
 imutils
-scipcy
+scipy
