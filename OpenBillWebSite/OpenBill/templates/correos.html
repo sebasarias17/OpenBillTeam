@@ -1,0 +1,42 @@
+{% load static %}
+<html>
+    <meta name="viewpost" content="width=device-width, initial-scale=1.0">
+    <tittle> <h2> {{subject}} </h2> </tittle>
+    <style type="text/css">
+        body{
+            margin: 0;
+            background-color: rgb(50, 48, 48);
+        }
+        table{
+            border-spacing: 0;
+        }
+        td {
+            padding: 0;
+        }
+        img {
+            border: 0;
+        }.wrapper{
+            width: 100%;
+            table-layout: fixed;
+            background-color: #cccccc;
+            padding-bottom: 60px;
+        }
+        .main{
+            background-color: #ffffff;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 600px;
+            border-spacing: 0;
+            font-family: sans-serif;
+            color: #171a1b;
+        }
+    </style>
+    </head>
+    <body>
+        <div>
+            <h2> Nombre: <h4> {{name}} </h4> </h2>
+            <h2> eMail: <h4> {{email}} </h4> </h2>
+            <h2> Mensaje: <h4> {{message}} </h4> </h2>
+        </div>
+    </body>
+</html>
