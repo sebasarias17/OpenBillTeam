@@ -27,7 +27,7 @@ urlpatterns = [
     path('contact/', OpenBillViews.contact),
     path('history/', OpenBillViews.history),
     path('about/', OpenBillViews.about),
-    path('index/', OpenBillViews.index)
+    path('', OpenBillViews.index)
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
