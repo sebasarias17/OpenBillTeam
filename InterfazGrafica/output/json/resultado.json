@@ -1,0 +1,64 @@
+{
+    "nombreEmpresa": "OpenBill",
+    "nroFactura": "N-00003",
+    "fecha": "14 de noviembre de 2022, 00:00:00 UTC-5",
+    "nombreVendedor": "Luis Villa",
+    "direccion": "CALLE 69 # 42-00",
+    "productos": {
+        "0": {
+            "PRODUCTO": "PAPAS LIMON",
+            "CANTIDAD": "12",
+            "PRECIO": "2500",
+            "TOTAL-PRODUCTO": "30000"
+        },
+        "1": {
+            "PRODUCTO": "NACHOS",
+            "CANTIDAD": "2",
+            "PRECIO": "6500",
+            "TOTAL-PRODUCTO": "13000"
+        },
+        "2": {
+            "PRODUCTO": "COCA-COLA",
+            "CANTIDAD": "6",
+            "PRECIO": "4000",
+            "TOTAL-PRODUCTO": "24000"
+        },
+        "3": {
+            "PRODUCTO": "DORITOS",
+            "CANTIDAD": "12",
+            "PRECIO": "2500",
+            "TOTAL-PRODUCTO": "30000"
+        },
+        "4": {
+            "PRODUCTO": "PRINGLES",
+            "CANTIDAD": "5",
+            "PRECIO": "10000",
+            "TOTAL-PRODUCTO": "50000"
+        },
+        "5": {
+            "PRODUCTO": "PRINGLES LIMON",
+            "CANTIDAD": "5",
+            "PRECIO": "10000",
+            "TOTAL-PRODUCTO": "50000"
+        },
+        "6": {
+            "PRODUCTO": "PRINGLES CEBOLLA",
+            "CANTIDAD": "5",
+            "PRECIO": "10000",
+            "TOTAL-PRODUCTO": "50000"
+        },
+        "7": {
+            "PRODUCTO": "PRINGLES CHEDDAR",
+            "CANTIDAD": "5",
+            "PRECIO": "10000",
+            "TOTAL-PRODUCTO": "50000"
+        },
+        "8": {
+            "PRODUCTO": "PRINGLES BBQ",
+            "CANTIDAD": "5",
+            "PRECIO": "10000",
+            "TOTAL-PRODUCTO": "50000"
+        }
+    },
+    "totalVenta": 374900
+}
